@@ -1,56 +1,42 @@
-// C program to print 
-// the given pattern 
-
-#include<stdio.h> 
-pattern(int n) 
-{ 
-	int i,j; 
-
-	// This is upper half of pattern 
-	for (i=1; i<=n; i++) 
-	{ 
-		for (j=1; j<=(2*n); j++) 
-		{ 
-			// Left part of pattern 
-			if (i>(n-j+1)) 
-				printf(" "); 
-			else
-				printf("*"); 
-				
-			// Right part of pattern 
-			if ((i+n)>j) 
-				printf(" "); 
-			else
-				printf("*"); 
-		} 
-		printf("\n"); 
-	} 
-	
-	// This is lower half of pattern 
-	for (i=1; i<=n; i++) 
-	{ 
-		for (j=1; j<=(2*n); j++) 
-		{ 
-			// Right Part of pattern 
-			if (i<j) 
-				printf(" "); 
-			else
-				printf("*"); 
+#include<stdio.h>
+main()
+{
+	int i,j,rows,n,m,space,num=1;
+	scanf("%d",&rows);
+	n=rows;m=rows;
+	for(i=rows;i>=1;i--)
+	{	
+		for(j=1;j<=i;j++)
+		{
+			printf("* ",num);
+		}
+		for(space=1;space<(m-rows)+2;space=space+1)
+		{
+			printf(" ");
 			
-			// Left Part of pattern 
-			if (i<=((2*n)-j)) 
-				printf(" "); 
-			else
-				printf("*"); 
-		} 
-		printf("\n"); 
-	} 
-} 
-
-// main function 
-int main() 
-{ 
-	pattern(7); 
-	return 0; 
-} 
-
+		}
+		m=m+4;
+		for(j=1;j<=i;j++)
+		{
+			printf("* ");
+		}
+		printf("\n");
+	}
+	for(i=1;i<=rows;i++)
+	{	
+		for(j=1;j<=i;j++)
+		{
+			printf("* ",num);
+		}
+		for(space=(n*4)-2;space>1;space=space-1)
+		{
+			printf(" ");	
+		}
+		n--;
+		for(j=1;j<=i;j++)
+		{
+			printf("* ");
+		}
+		printf("\n");
+	}
+}
